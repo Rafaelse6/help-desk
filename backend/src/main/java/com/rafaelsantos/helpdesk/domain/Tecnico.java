@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.OneToMany;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -16,7 +17,7 @@ public class Tecnico extends Pessoa{
 	private static final long serialVersionUID = 1L;
 	
 	@JsonIgnore
-	@OneToMany(mappedBy = "tecnico")
+	@OneToMany(mappedBy = "tecnico", fetch = FetchType.EAGER)
 	private List<Chamado> chamados = new ArrayList<>();
 
 	public Tecnico() {
